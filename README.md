@@ -1,2 +1,2 @@
-# webInterface
-Programowanie interfejsów web.
+# Web interfaces
+Creating simple web applications
