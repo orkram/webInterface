@@ -26,7 +26,7 @@ const template = "  <li class=\"mdc-list-item\" role=\"checkbox\" aria-checked=\
   "             </button>  "+
   "              </li>";
 
-let removedItem = 'removed item';
+let removedItem = '';
 
 function removeItem(e) {
   const item = e.target;
