@@ -13,5 +13,12 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "@material/button": "^10.0.0",
+    "@material/list": "^10.0.0",
+    "@material/ripple": "^10.0.0",
+    "@material/textfield": "^10.0.0",
+    "jquery": "^3.6.0"
   }
 }

@@ -1,7 +1,6 @@
 .main-row{
   display: flex;
   flex-direction: row;
-  font-family: Roboto,sans-serif;
 }
 
 .todo-spacer{
@@ -10,9 +9,86 @@
 
 .todo-holder{
   align-content: center;
-  position: center;
+  position: relative;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  background-color: #FFFDD0;
+  background-color: #ccc27b;
+  border-radius: 25px;
+  font-size: 14px; !important;
+}
+.todo-holder h1{
+  text-align: center;
+  font-weight: lighter;
+  font-family: Roboto,sans-serif;
+  position: relative;
+}
+
+.selected{
+  background-color: #233F86 ;
+  color: dimgray !important;
+  border-radius: 25px;
+}
+.line-through{
+  text-decoration-line: line-through;
+}
+
+.mdc-list-item{
+  flex-grow:1 ;
+  width: 100%;
+  background: #233F86;
+  border-radius: 25px;
+  color: aliceblue;
+  margin-top: 2px;
+}
+
+.todo-input{
+  margin: 10px;
+  position: relative;
+}
+
+
+.mdc-list-item__text{
+  flex:  0 0 70%;
+}
+
+.mdc-list body{
+background: none;
+}
+
+.mdc-list-item{
+  position: relative;
+  width: 100%;
+}
+
+.mdc-button__label{
+  text-decoration-line: unset !important;
+}
+
+.main{
+  background: #EBECF0;
+}
+.mdc-button--raised{
+  --mdc-theme-primary: #233F86 ;
+
+}
+.mdc-button{
+  --mdc-theme-primary: #233F86 ;
+}
+
+.mdc-button__label{
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.remove-label{
+  color: red;
+  --mdc-theme-primary:red;
+}
+
+.mdc-text-field{
+  font-size: 16px;
+}
+.input-field{
+  font-size: 16px !important;
 }

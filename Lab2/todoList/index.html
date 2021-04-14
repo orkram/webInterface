@@ -11,86 +11,45 @@
 
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <title>Your ToDo</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- bootbox.js at 4.4.0 -->
+  <script src="https://rawgit.com/makeusabrew/bootbox/f3a04a57877cab071738de558581fbc91812dce9/bootbox.js"></script>
+
+  <title>TODO</title>
 </head>
-<body>
+<body class="main">
 <div class="main-row">
-
   <div class="todo-spacer"> </div>
   <div class="todo-holder">
     <h1>Your todo List</h1>
     <div class="todo-input">
+        <label class="mdc-text-field mdc-text-field--outlined">
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__notch">
+            <span class="mdc-floating-label" id="my-label-id"></span>
+          </span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+          <input type="text" class="mdc-text-field__input input-field" aria-labelledby="my-label-id">
+        </label>
 
-      <label class="mdc-text-field mdc-text-field--filled">
-        <span class="mdc-text-field__ripple"></span>
-        <span class="mdc-floating-label" id="my-label-id">Description</span>
-        <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
-        <span class="mdc-line-ripple"></span>
-      </label>
-
-      <button class="mdc-button foo-button">
-        <div class="mdc-button__ripple"></div>
-        <span class="mdc-button__label">Add task</span>
-      </button>
-
+        <button class="mdc-button add-button" id="add-button">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">Add task</span>
+        </button>
 
     </div>
-    <div class="todo-list">
-      <ul class="mdc-list" role="radiogroup">
-        <li class="mdc-list-item" role="radio" aria-checked="false">
-          <span class="mdc-list-item__ripple"></span>
-          <span class="mdc-list-item__graphic">
-      <div class="mdc-radio">
-        <input class="mdc-radio__native-control"
-               type="radio"
-               id="demo-list-radio-item-1"
-               name="demo-list-radio-item-group"
-               value="1">
-        <div class="mdc-radio__background">
-          <div class="mdc-radio__outer-circle"></div>
-          <div class="mdc-radio__inner-circle"></div>
-        </div>
-      </div>
-    </span>
-          <label class="mdc-list-item__text" for="demo-list-radio-item-1">First item</label>
-        </li>
-        <li class="mdc-list-item" role="radio" aria-checked="true" tabindex="0">
-          <span class="mdc-list-item__ripple"></span>
-          <span class="mdc-list-item__graphic">
-      <div class="mdc-radio">
-        <input class="mdc-radio__native-control"
-               type="radio"
-               id="demo-list-radio-item-2"
-               name="demo-list-radio-item-group"
-               value="2"
-               checked>
-        <div class="mdc-radio__background">
-          <div class="mdc-radio__outer-circle"></div>
-          <div class="mdc-radio__inner-circle"></div>
-        </div>
-      </div>
-    </span>
-          <label class="mdc-list-item__text" for="demo-list-radio-item-2">Second item</label>
-        </li>
-        <li class="mdc-list-item" role="radio" aria-checked="false">
-          <span class="mdc-list-item__ripple"></span>
-          <span class="mdc-list-item__graphic">
-      <div class="mdc-radio">
-        <input class="mdc-radio__native-control"
-               type="radio"
-               id="demo-list-radio-item-3"
-               name="demo-list-radio-item-group"
-               value="3">
-        <div class="mdc-radio__background">
-          <div class="mdc-radio__outer-circle"></div>
-          <div class="mdc-radio__inner-circle"></div>
-        </div>
-      </div>
-    </span>
-          <label class="mdc-list-item__text" for="demo-list-radio-item-3">Third item</label>
-        </li>
-      </ul>
+    <div class="todo-list" >
+          <ul class="mdc-list" role="checkbox">  </ul>
     </div>
   </div>
   <div class="todo-spacer"> </div>
