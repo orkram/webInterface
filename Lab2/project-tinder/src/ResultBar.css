@@ -1,0 +1,10 @@
+.result-box{
+    margin: 20px;
+    position: relative;
+    width: auto;
+    top: 5%;
+    font-size: 20px;
+    color: #9b9b9b;
+    text-align: left;
+    max-height: 100px;
+}

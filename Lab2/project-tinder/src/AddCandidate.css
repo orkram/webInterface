@@ -1,0 +1,27 @@
+.add-user-form{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-width: 25%;
+  margin: 25px;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #6f6cde;
+  height: 40em;
+  text-align: center;
+  align-content: center;
+}
+.add-user-form input{
+  margin: 25px;
+}
+
+.add-user-form button{
+  margin: 10px;
+}
+
+.title{
+  font-size: 40px;
+  color: #9b9b9b;
+  margin: 10px;
+}
+
