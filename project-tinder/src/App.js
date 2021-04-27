@@ -35,14 +35,13 @@ export class App extends Component {
                     email:'',
                     tags: 'PHP'
                 }
-            ]
+            ],
+            filterDescription:'',
+            filterTags: ''
         }
     }
 
     handleAddUser = (data_from_child)=>{
-
-        console.log(data_from_child.description);
-
         this.setState(({ users }) => ({
             users: [
                 ...users,
@@ -55,16 +54,36 @@ export class App extends Component {
             ],
         })
         )
+    }
+    handleFilters = (data_from_child)=>{
 
+        this.setState({
+                filterTags: data_from_child.filterTags,
+                filterDescription: data_from_child.filterDescription
+            }
+        )
+    }
+
+    getListContent = () =>{
+        let content = this.state.users;
+        if(this.state.filterTags !== ''){
+
+            content = content.filter(user => user.tags.toLowerCase().includes(this.state.filterTags.toLowerCase()));
+            console.log(content);
+        }
+        if(this.state.filterDescription !== ''){
+            content = content.filter(user => user.description.toLowerCase().includes(this.state.filterDescription.toLowerCase()));
+        }
+        return content;
     }
 
     render() {
         return (
             <div className={"content"}>
                 <div className="main-content">
-                    <FilterBar/>
-                    <ResultBar/>
-                    <ProjectList users = {this.state.users}/>
+                    <FilterBar SetFilters={this.handleFilters.bind(this)} />
+                    <ResultBar result = {this.getListContent().length}/>
+                    <ProjectList users = {this.getListContent()}/>
                 </div>
                 <AddCandidate functionCallFromParent={this.handleAddUser.bind(this)}/>
             </div>
