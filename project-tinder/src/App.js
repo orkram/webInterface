@@ -1,92 +1,93 @@
 import './App.css';
 import React, {Component} from "react";
-import {FilterBar} from "./FilterBar";
-import ResultBar from "./ResultBar";
-import {AddCandidate} from "./AddCandidate";
-import {ProjectList} from "./ProjectList";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {MainPage} from "./MainPage";
+import {AddUser} from "./AddUser";
+import {withRouter} from "react-router";
+import {Navigation} from "./Navigation";
+
+
 
 export class App extends Component {
 
     constructor(props) {
         super(props);
+        this.handleAdd = this.handleAddUser.bind(this)
         this.state = {
             users: [
                 {
+                    id: 1,
                     username: 'Maja Hedy',
                     description: 'homeless, jobless, talentless',
                     email:'',
                     tags: 'html, css'
                 },
                 {
+                    id: 2,
                     username: 'Firmino Lú',
                     description: 'Promising starting chinese engineer',
                     email:'',
                     tags: 'Scala, Java, Akka streams, Kafka'
                 },
                 {
+                    id: 3,
                     username: 'Ryana Gwilherm',
                     description: 'Harverd dropout looking for a job at startup',
                     email:'',
                     tags: 'Python, C#'
                 },
                 {
+                    id: 4,
                     username: 'Olimpia Praxis',
                     description: 'Experienced front end developer looking for Senior developer/architect position',
                     email:'',
                     tags: 'PHP'
                 }
             ],
-            filterDescription:'',
-            filterTags: ''
         }
     }
 
     handleAddUser = (data_from_child)=>{
         this.setState(({ users }) => ({
-            users: [
-                ...users,
-                {
-                    username:data_from_child.username,
-                    description:data_from_child.description,
-                    email:data_from_child.email,
-                    tags:data_from_child.tags
-                }
-            ],
-        })
+                users: [
+                    ...users,
+                    {
+                        id: users.length +1,
+                        username:data_from_child.username,
+                        description:data_from_child.description,
+                        email:data_from_child.email,
+                        tags:data_from_child.tags
+                    }
+                ],
+            })
         )
     }
-    handleFilters = (data_from_child)=>{
 
+    editUser = (userEdit) => {
+        console.log(userEdit);
         this.setState({
-                filterTags: data_from_child.filterTags,
-                filterDescription: data_from_child.filterDescription
-            }
-        )
-    }
-
-    getListContent = () =>{
-        let content = this.state.users;
-        if(this.state.filterTags !== ''){
-
-            content = content.filter(user => user.tags.toLowerCase().includes(this.state.filterTags.toLowerCase()));
-            console.log(content);
-        }
-        if(this.state.filterDescription !== ''){
-            content = content.filter(user => user.description.toLowerCase().includes(this.state.filterDescription.toLowerCase()));
-        }
-        return content;
+            users:
+                this.state.users.map(user => {
+                    if (user.id === userEdit.id)
+                        return userEdit;
+                    else return user;
+                })
+        });
     }
 
     render() {
         return (
-            <div className={"content"}>
-                <div className="main-content">
-                    <FilterBar SetFilters={this.handleFilters.bind(this)} />
-                    <ResultBar result = {this.getListContent().length}/>
-                    <ProjectList users = {this.getListContent()}/>
+            <Router>
+                <div className={"content"}>
+                    <Nav />
+                    <Switch>
+                        <Route path={"/"} exact component={() => <MainPage users = {this.state.users} useredit ={this.editUser}/>} />
+                        <Route path={"/add-user"} component={() => <AddUser addUser = {this.handleAddUser} /> }/>
+                    </Switch>
                 </div>
-                <AddCandidate functionCallFromParent={this.handleAddUser.bind(this)}/>
-            </div>
-        )
+            </Router>
+        );
     }
 }
+ const Nav = withRouter(Navigation);
+

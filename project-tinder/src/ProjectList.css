@@ -8,8 +8,28 @@
 
 .list{
     background: #ffffff;
+    border-radius: 25px;
 }
 
 .list li{
     height: 7em;
 }
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 30em;
+
+}
+
+.MuiInput-root{
+    width: 80%;
+    margin: 10px;
+}
+
+.submit-button{
+    width: 50px;
+    margin: 10px!important;
+
+}
+

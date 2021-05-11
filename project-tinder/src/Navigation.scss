@@ -1,0 +1,21 @@
+.spacer{
+  flex: 0 0 3%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  max-height: 3em;
+  border-radius: 16px;
+  background: #1B1E23;
+}
+
+.MuiButton-label{
+  color: #6f6cde;
+}
+
+.nav-button{
+  margin-top: 5px!important;
+}
+
