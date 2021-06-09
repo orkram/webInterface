@@ -20,6 +20,7 @@ export const ProjectList = ({users, parentCallback}) => {
 
     const editUser = (id) => {
         setOpen(true);
+        console.log(id);
         setId(id);
     }
 
@@ -76,7 +77,7 @@ export const ProjectList = ({users, parentCallback}) => {
             <div className={"list"}>
                 <Paper style={{maxHeight: 650, overflow: 'auto'}}>
                 <List dense={false} >
-                    {users.map(({id,username,description,_,tags}) => (
+                    {users.map(({id, username,description,_,tags}) => (
                         <ListItem key={uuid()}>
                             <ListItemAvatar>
                                 <Avatar>
@@ -89,8 +90,7 @@ export const ProjectList = ({users, parentCallback}) => {
                                     <span>
                                         <span>{description}</span>
                                         <br/>
-                                        <span>{'Tags: ' + tags}</span>
-                                    </span>
+                                        <span>{'Tags: ' + tags}</span></span>
                                 }
                             />
                             <Button className={'edit-button'} onClick={() => editUser(id)} > Edit </Button>
